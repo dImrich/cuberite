@@ -33,6 +33,7 @@
 #include "../BlockEntities/HopperEntity.h"
 #include "../BlockEntities/JukeboxEntity.h"
 #include "../BlockEntities/NoteEntity.h"
+#include "../BlockEntities/ShulkerBoxEntity.h"
 #include "../BlockEntities/SignEntity.h"
 #include "../BlockEntities/MobHeadEntity.h"
 #include "../BlockEntities/MobSpawnerEntity.h"
@@ -62,7 +63,6 @@
 #include "../Protocol/MojangAPI.h"
 #include "../Server.h"
 #include "../BoundingBox.h"
-
 
 
 
@@ -186,21 +186,21 @@ void cWSSAnvil::ChunkLoadFailed(int a_ChunkX, int a_ChunkZ, const AString & a_Re
 	cFile::CreateFolder(OffloadFileName);
 	auto t = time(nullptr);
 	struct tm stm;
-	#ifdef _MSC_VER
-		localtime_s(&stm, &t);
-	#else
-		localtime_r(&t, &stm);
-	#endif
+#ifdef _MSC_VER
+	localtime_s(&stm, &t);
+#else
+	localtime_r(&t, &stm);
+#endif
 	AppendPrintf(OffloadFileName, "%cch.%d.%d.%d-%02d-%02d-%02d-%02d-%02d.dat",
-		cFile::PathSeparator(), a_ChunkX, a_ChunkZ,
-		stm.tm_year + 1900, stm.tm_mon + 1, stm.tm_mday, stm.tm_hour, stm.tm_min, stm.tm_sec
+				 cFile::PathSeparator(), a_ChunkX, a_ChunkZ,
+				 stm.tm_year + 1900, stm.tm_mon + 1, stm.tm_mday, stm.tm_hour, stm.tm_min, stm.tm_sec
 	);
 
 	// Log the warning to console:
 	const int RegionX = FAST_FLOOR_DIV(a_ChunkX, 32);
 	const int RegionZ = FAST_FLOOR_DIV(a_ChunkZ, 32);
 	AString Info = Printf("Loading chunk [%d, %d] for world %s from file r.%d.%d.mca failed: %s Offloading old chunk data to file %s and regenerating chunk.",
-		a_ChunkX, a_ChunkZ, m_World->GetName().c_str(), RegionX, RegionZ, a_Reason.c_str(), OffloadFileName.c_str()
+						  a_ChunkX, a_ChunkZ, m_World->GetName().c_str(), RegionX, RegionZ, a_Reason.c_str(), OffloadFileName.c_str()
 	);
 	LOGWARNING("%s", Info.c_str());
 
@@ -656,6 +656,22 @@ OwnedBlockEntity cWSSAnvil::LoadBlockEntityFromNBT(const cParsedNBT & a_NBT, int
 		case E_BLOCK_LIT_FURNACE:        return LoadFurnaceFromNBT         (a_NBT, a_Tag, a_BlockType, a_BlockMeta, a_Pos);
 		case E_BLOCK_MOB_SPAWNER:        return LoadMobSpawnerFromNBT      (a_NBT, a_Tag, a_BlockType, a_BlockMeta, a_Pos);
 		case E_BLOCK_NOTE_BLOCK:         return LoadNoteBlockFromNBT       (a_NBT, a_Tag, a_BlockType, a_BlockMeta, a_Pos);
+		case E_BLOCK_WHITE_SHULKER_BOX:
+		case E_BLOCK_ORANGE_SHULKER_BOX:
+		case E_BLOCK_MAGENTA_SHULKER_BOX:
+		case E_BLOCK_LIGHT_BLUE_SHULKER_BOX:
+		case E_BLOCK_YELLOW_SHULKER_BOX:
+		case E_BLOCK_LIME_SHULKER_BOX:
+		case E_BLOCK_PINK_SHULKER_BOX:
+		case E_BLOCK_GRAY_SHULKER_BOX:
+		case E_BLOCK_LIGHT_GRAY_SHULKER_BOX:
+		case E_BLOCK_CYAN_SHULKER_BOX:
+		case E_BLOCK_PURPLE_SHULKER_BOX:
+		case E_BLOCK_BLUE_SHULKER_BOX:
+		case E_BLOCK_BROWN_SHULKER_BOX:
+		case E_BLOCK_GREEN_SHULKER_BOX:
+		case E_BLOCK_RED_SHULKER_BOX:
+		case E_BLOCK_BLACK_SHULKER_BOX:  return LoadShulkerBoxFromNBT      (a_NBT, a_Tag, a_BlockType, a_BlockMeta, a_Pos);
 		case E_BLOCK_SIGN_POST:          return LoadSignFromNBT            (a_NBT, a_Tag, a_BlockType, a_BlockMeta, a_Pos);
 		case E_BLOCK_TRAPPED_CHEST:      return LoadChestFromNBT           (a_NBT, a_Tag, a_BlockType, a_BlockMeta, a_Pos);
 		case E_BLOCK_WALLSIGN:           return LoadSignFromNBT            (a_NBT, a_Tag, a_BlockType, a_BlockMeta, a_Pos);
@@ -666,9 +682,9 @@ OwnedBlockEntity cWSSAnvil::LoadBlockEntityFromNBT(const cParsedNBT & a_NBT, int
 			// Get the "id" tag:
 			int TagID = a_NBT.FindChildByName(a_Tag, "id");
 			FLOGINFO("WorldLoader({0}): Block entity mismatch: block type {1} ({2}), type \"{3}\", at {4}; the entity will be lost.",
-				m_World->GetName(),
-				ItemTypeToString(a_BlockType), a_BlockType, (TagID >= 0) ? a_NBT.GetStringView(TagID) : "unknown",
-				a_Pos
+					 m_World->GetName(),
+					 ItemTypeToString(a_BlockType), a_BlockType, (TagID >= 0) ? a_NBT.GetStringView(TagID) : "unknown",
+					 a_Pos
 			);
 			return nullptr;
 		}
@@ -778,6 +794,18 @@ bool cWSSAnvil::LoadItemFromNBT(cItem & a_Item, const cParsedNBT & a_NBT, int a_
 		cFireworkItem::ParseFromNBT(a_Item.m_FireworkItem, a_NBT, FireworksTag, static_cast<ENUM_ITEM_TYPE>(a_Item.m_ItemType));
 	}
 
+	int BlockEntityTag = a_NBT.FindChildByName(TagTag, "BlockEntityTag");
+	if (BlockEntityTag > 0)
+	{
+		int ItemsTag = a_NBT.FindChildByName(BlockEntityTag, "Items");
+		auto Items = cItemGrid(3,9);
+		LoadItemGridFromNBT(Items, a_NBT, ItemsTag);
+
+		Json::Value a_TagJson(Json::objectValue);
+		BlockEntityTagSerializer::WriteToJson(a_TagJson, a_Item, Items);
+		a_Item.m_BlockEntityTag = a_TagJson;
+	}
+
 	return true;
 }
 
@@ -881,8 +909,8 @@ bool cWSSAnvil::CheckBlockEntityType(const cParsedNBT & a_NBT, int a_TagIdx, con
 		expectedTypes.push_back('\"');
 	}
 	FLOGWARNING("Block entity type mismatch: exp {0}, got \"{1}\". The block entity at {2} will lose all its properties.",
-		expectedTypes.c_str() + 2,  // Skip the first ", " that is extra in the string
-		a_NBT.GetStringView(TagID), a_Pos
+				expectedTypes.c_str() + 2,  // Skip the first ", " that is extra in the string
+				a_NBT.GetStringView(TagID), a_Pos
 	);
 	return false;
 }
@@ -1035,6 +1063,38 @@ OwnedBlockEntity cWSSAnvil::LoadChestFromNBT(const cParsedNBT & a_NBT, int a_Tag
 	auto Chest = std::make_unique<cChestEntity>(a_BlockType, a_BlockMeta, a_Pos, m_World);
 	LoadItemGridFromNBT(Chest->GetContents(), a_NBT, Items);
 	return Chest;
+}
+
+
+
+
+
+OwnedBlockEntity cWSSAnvil::LoadShulkerBoxFromNBT(const cParsedNBT & a_NBT, int a_TagIdx, BLOCKTYPE a_BlockType, NIBBLETYPE a_BlockMeta, Vector3i a_Pos)
+{
+	// Check if the data has a proper type:
+	static const AStringVector expectedTypes(
+		{"ShulkerBox", "minecraft:shulker_box"});
+	if (!CheckBlockEntityType(a_NBT, a_TagIdx, expectedTypes, a_Pos))
+	{
+		return nullptr;
+	}
+
+	int Items = a_NBT.FindChildByName(a_TagIdx, "Items");
+	if ((Items < 0) || (a_NBT.GetType(Items) != TAG_List))
+	{
+		return nullptr;	 // Make it an empty chest - the chunk loader will
+		// provide an empty cChestEntity for this
+	}
+	auto ShulkerBox = std::make_unique<cShulkerBoxEntity>(a_BlockType, a_BlockMeta, a_Pos, m_World);
+	LoadItemGridFromNBT(ShulkerBox->GetContents(), a_NBT, Items);
+
+	int CustomName = a_NBT.FindChildByName(a_TagIdx, "CustomName");
+	if ((CustomName > 0) || (a_NBT.GetType(CustomName) == TAG_String))
+	{
+		ShulkerBox->m_CustomName = a_NBT.GetString(CustomName);
+	}
+
+	return ShulkerBox;
 }
 
 
@@ -1551,51 +1611,51 @@ void cWSSAnvil::LoadEntityFromNBT(cEntityList & a_Entities, const cParsedNBT & a
 	typedef void (cWSSAnvil::*EntityLoaderFunc)(cEntityList &, const cParsedNBT &, int a_EntityTagIdx);
 	typedef std::map<std::string_view, EntityLoaderFunc> EntityLoaderMap;
 	static const EntityLoaderMap EntityTypeToFunction
-	{
-		{ "Boat",                          &cWSSAnvil::LoadBoatFromNBT },
-		{ "minecraft:boat",                &cWSSAnvil::LoadBoatFromNBT },
-		{ "EnderCrystal",                  &cWSSAnvil::LoadEnderCrystalFromNBT },
-		{ "minecraft:ender_crystal",       &cWSSAnvil::LoadEnderCrystalFromNBT },
-		{ "FallingBlock",                  &cWSSAnvil::LoadFallingBlockFromNBT },
-		{ "minecraft:falling_block",       &cWSSAnvil::LoadFallingBlockFromNBT },
-		{ "Minecart",                      &cWSSAnvil::LoadOldMinecartFromNBT },
-		{ "MinecartChest",                 &cWSSAnvil::LoadMinecartCFromNBT },
-		{ "minecraft:chest_minecart",      &cWSSAnvil::LoadMinecartCFromNBT },
-		{ "MinecartFurnace",               &cWSSAnvil::LoadMinecartFFromNBT },
-		{ "minecraft:furnace_minecart",    &cWSSAnvil::LoadMinecartFFromNBT },
-		{ "MinecartTNT",                   &cWSSAnvil::LoadMinecartTFromNBT },
-		{ "minecraft:tnt_minecart",        &cWSSAnvil::LoadMinecartTFromNBT },
-		{ "MinecartHopper",                &cWSSAnvil::LoadMinecartHFromNBT },
-		{ "minecraft:hopper_minecart",     &cWSSAnvil::LoadMinecartHFromNBT },
-		{ "MinecartRideable",              &cWSSAnvil::LoadMinecartRFromNBT },
-		{ "minecraft:minecart",            &cWSSAnvil::LoadMinecartRFromNBT },
-		{ "Item",                          &cWSSAnvil::LoadPickupFromNBT },
-		{ "minecraft:item",                &cWSSAnvil::LoadPickupFromNBT },
-		{ "Painting",                      &cWSSAnvil::LoadPaintingFromNBT },
-		{ "minecraft:painting",            &cWSSAnvil::LoadPaintingFromNBT },
-		{ "PrimedTnt",                     &cWSSAnvil::LoadTNTFromNBT },
-		{ "minecraft:tnt",                 &cWSSAnvil::LoadTNTFromNBT },
-		{ "XPOrb",                         &cWSSAnvil::LoadExpOrbFromNBT },
-		{ "minecraft:xp_orb",              &cWSSAnvil::LoadExpOrbFromNBT },
-		{ "ItemFrame",                     &cWSSAnvil::LoadItemFrameFromNBT },
-		{ "minecraft:item_frame",          &cWSSAnvil::LoadItemFrameFromNBT },
-		{ "LeashKnot",                     &cWSSAnvil::LoadLeashKnotFromNBT },
-		{ "minecraft:leash_knot",          &cWSSAnvil::LoadLeashKnotFromNBT },
-		{ "Arrow",                         &cWSSAnvil::LoadArrowFromNBT },
-		{ "minecraft:arrow",               &cWSSAnvil::LoadArrowFromNBT },
-		{ "SplashPotion",                  &cWSSAnvil::LoadSplashPotionFromNBT },
-		{ "minecraft:potion",              &cWSSAnvil::LoadSplashPotionFromNBT },
-		{ "Snowball",                      &cWSSAnvil::LoadSnowballFromNBT },
-		{ "minecraft:snowball",            &cWSSAnvil::LoadSnowballFromNBT },
-		{ "Egg",                           &cWSSAnvil::LoadEggFromNBT },
-		{ "minecraft:egg",                 &cWSSAnvil::LoadEggFromNBT },
-		{ "Fireball",                      &cWSSAnvil::LoadFireballFromNBT },
-		{ "minecraft:fireball",            &cWSSAnvil::LoadFireballFromNBT },
-		{ "SmallFireball",                 &cWSSAnvil::LoadFireChargeFromNBT },
-		{ "minecraft:small_fireball",      &cWSSAnvil::LoadFireChargeFromNBT },
-		{ "ThrownEnderpearl",              &cWSSAnvil::LoadThrownEnderpearlFromNBT },
-		{ "minecraft:ender_pearl",         &cWSSAnvil::LoadThrownEnderpearlFromNBT }
-	};
+		{
+			{ "Boat",                          &cWSSAnvil::LoadBoatFromNBT },
+			{ "minecraft:boat",                &cWSSAnvil::LoadBoatFromNBT },
+			{ "EnderCrystal",                  &cWSSAnvil::LoadEnderCrystalFromNBT },
+			{ "minecraft:ender_crystal",       &cWSSAnvil::LoadEnderCrystalFromNBT },
+			{ "FallingBlock",                  &cWSSAnvil::LoadFallingBlockFromNBT },
+			{ "minecraft:falling_block",       &cWSSAnvil::LoadFallingBlockFromNBT },
+			{ "Minecart",                      &cWSSAnvil::LoadOldMinecartFromNBT },
+			{ "MinecartChest",                 &cWSSAnvil::LoadMinecartCFromNBT },
+			{ "minecraft:chest_minecart",      &cWSSAnvil::LoadMinecartCFromNBT },
+			{ "MinecartFurnace",               &cWSSAnvil::LoadMinecartFFromNBT },
+			{ "minecraft:furnace_minecart",    &cWSSAnvil::LoadMinecartFFromNBT },
+			{ "MinecartTNT",                   &cWSSAnvil::LoadMinecartTFromNBT },
+			{ "minecraft:tnt_minecart",        &cWSSAnvil::LoadMinecartTFromNBT },
+			{ "MinecartHopper",                &cWSSAnvil::LoadMinecartHFromNBT },
+			{ "minecraft:hopper_minecart",     &cWSSAnvil::LoadMinecartHFromNBT },
+			{ "MinecartRideable",              &cWSSAnvil::LoadMinecartRFromNBT },
+			{ "minecraft:minecart",            &cWSSAnvil::LoadMinecartRFromNBT },
+			{ "Item",                          &cWSSAnvil::LoadPickupFromNBT },
+			{ "minecraft:item",                &cWSSAnvil::LoadPickupFromNBT },
+			{ "Painting",                      &cWSSAnvil::LoadPaintingFromNBT },
+			{ "minecraft:painting",            &cWSSAnvil::LoadPaintingFromNBT },
+			{ "PrimedTnt",                     &cWSSAnvil::LoadTNTFromNBT },
+			{ "minecraft:tnt",                 &cWSSAnvil::LoadTNTFromNBT },
+			{ "XPOrb",                         &cWSSAnvil::LoadExpOrbFromNBT },
+			{ "minecraft:xp_orb",              &cWSSAnvil::LoadExpOrbFromNBT },
+			{ "ItemFrame",                     &cWSSAnvil::LoadItemFrameFromNBT },
+			{ "minecraft:item_frame",          &cWSSAnvil::LoadItemFrameFromNBT },
+			{ "LeashKnot",                     &cWSSAnvil::LoadLeashKnotFromNBT },
+			{ "minecraft:leash_knot",          &cWSSAnvil::LoadLeashKnotFromNBT },
+			{ "Arrow",                         &cWSSAnvil::LoadArrowFromNBT },
+			{ "minecraft:arrow",               &cWSSAnvil::LoadArrowFromNBT },
+			{ "SplashPotion",                  &cWSSAnvil::LoadSplashPotionFromNBT },
+			{ "minecraft:potion",              &cWSSAnvil::LoadSplashPotionFromNBT },
+			{ "Snowball",                      &cWSSAnvil::LoadSnowballFromNBT },
+			{ "minecraft:snowball",            &cWSSAnvil::LoadSnowballFromNBT },
+			{ "Egg",                           &cWSSAnvil::LoadEggFromNBT },
+			{ "minecraft:egg",                 &cWSSAnvil::LoadEggFromNBT },
+			{ "Fireball",                      &cWSSAnvil::LoadFireballFromNBT },
+			{ "minecraft:fireball",            &cWSSAnvil::LoadFireballFromNBT },
+			{ "SmallFireball",                 &cWSSAnvil::LoadFireChargeFromNBT },
+			{ "minecraft:small_fireball",      &cWSSAnvil::LoadFireChargeFromNBT },
+			{ "ThrownEnderpearl",              &cWSSAnvil::LoadThrownEnderpearlFromNBT },
+			{ "minecraft:ender_pearl",         &cWSSAnvil::LoadThrownEnderpearlFromNBT }
+		};
 
 	// TODO: flatten monster\projectile into one entity type enum
 
@@ -3908,7 +3968,7 @@ bool cWSSAnvil::cMCAFile::OpenFile(bool a_IsForReading)
 		if (
 			(m_File.Write(m_Header, sizeof(m_Header)) != sizeof(m_Header)) ||           // Write chunk offsets
 			(m_File.Write(m_TimeStamps, sizeof(m_TimeStamps)) != sizeof(m_TimeStamps))  // Write chunk timestamps
-		)
+			)
 		{
 			LOGWARNING("Cannot process MCA header in file \"%s\", chunks in that file will be lost", m_FileName.c_str());
 			m_File.Close();
@@ -4044,7 +4104,7 @@ bool cWSSAnvil::cMCAFile::SetChunkData(const cChunkCoords & a_Chunk, const Conti
 	if (ChunkSize > 255)
 	{
 		LOGWARNING("Cannot save chunk [%d, %d], the data is too large (%u KiB, maximum is 1024 KiB). Remove some entities and retry.",
-			a_Chunk.m_ChunkX, a_Chunk.m_ChunkZ, static_cast<unsigned>(ChunkSize * 4)
+				   a_Chunk.m_ChunkX, a_Chunk.m_ChunkZ, static_cast<unsigned>(ChunkSize * 4)
 		);
 		return false;
 	}

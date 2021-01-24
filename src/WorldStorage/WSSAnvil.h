@@ -50,16 +50,16 @@ class cWSSAnvil:
 {
 	using Super = cWSSchema;
 
-public:
+  public:
 
 	cWSSAnvil(cWorld * a_World, int a_CompressionFactor);
 	virtual ~cWSSAnvil() override;
 
-protected:
+  protected:
 
 	class cMCAFile
 	{
-	public:
+	  public:
 
 		cMCAFile(cWSSAnvil & a_ParentSchema, const AString & a_FileName, int a_RegionX, int a_RegionZ);
 
@@ -70,7 +70,7 @@ protected:
 		int             GetRegionZ (void) const {return m_RegionZ; }
 		const AString & GetFileName(void) const {return m_FileName; }
 
-	protected:
+	  protected:
 
 		cWSSAnvil & m_ParentSchema;
 
@@ -170,6 +170,7 @@ protected:
 	OwnedBlockEntity LoadMobHeadFromNBT          (const cParsedNBT & a_NBT, int a_TagIdx, BLOCKTYPE a_BlockType, NIBBLETYPE a_BlockMeta, Vector3i a_Pos);
 	OwnedBlockEntity LoadMobSpawnerFromNBT       (const cParsedNBT & a_NBT, int a_TagIdx, BLOCKTYPE a_BlockType, NIBBLETYPE a_BlockMeta, Vector3i a_Pos);
 	OwnedBlockEntity LoadNoteBlockFromNBT        (const cParsedNBT & a_NBT, int a_TagIdx, BLOCKTYPE a_BlockType, NIBBLETYPE a_BlockMeta, Vector3i a_Pos);
+	OwnedBlockEntity LoadShulkerBoxFromNBT       (const cParsedNBT & a_NBT, int a_TagIdx, BLOCKTYPE a_BlockType, NIBBLETYPE a_BlockMeta, Vector3i a_Pos);
 	OwnedBlockEntity LoadSignFromNBT             (const cParsedNBT & a_NBT, int a_TagIdx, BLOCKTYPE a_BlockType, NIBBLETYPE a_BlockMeta, Vector3i a_Pos);
 
 	void LoadEntityFromNBT(cEntityList & a_Entities, const cParsedNBT & a_NBT, int a_EntityTagIdx, std::string_view a_EntityName);

@@ -24,7 +24,6 @@
 #include "ItemDye.h"
 #include "ItemEmptyMap.h"
 #include "ItemEnchantingTable.h"
-#include "ItemEndCrystal.h"
 #include "ItemEyeOfEnder.h"
 #include "ItemFishingRod.h"
 #include "ItemFood.h"
@@ -54,6 +53,7 @@
 #include "ItemSeeds.h"
 #include "ItemShears.h"
 #include "ItemShovel.h"
+#include "ItemShulkerBox.h"
 #include "ItemSign.h"
 #include "ItemSlab.h"
 #include "ItemSoup.h"
@@ -111,7 +111,7 @@ cItemHandler * cItemHandler::CreateItemHandler(int a_ItemType)
 	{
 		default:                       return new cItemHandler(a_ItemType);
 
-		// Single item per handler, alphabetically sorted:
+			// Single item per handler, alphabetically sorted:
 		case E_BLOCK_BIG_FLOWER:         return new cItemBigFlowerHandler;
 		case E_BLOCK_CHEST:              return new cItemChestHandler(a_ItemType);
 		case E_BLOCK_ENCHANTMENT_TABLE:  return new cItemEnchantingTableHandler(a_ItemType);
@@ -138,7 +138,6 @@ cItemHandler * cItemHandler::CreateItemHandler(int a_ItemType)
 		case E_ITEM_EGG:                 return new cItemEggHandler();
 		case E_ITEM_EMPTY_MAP:           return new cItemEmptyMapHandler();
 		case E_ITEM_ENDER_PEARL:         return new cItemEnderPearlHandler();
-		case E_ITEM_END_CRYSTAL:         return new cItemEndCrystalHandler(a_ItemType);
 		case E_ITEM_EYE_OF_ENDER:        return new cItemEyeOfEnderHandler();
 		case E_ITEM_FIRE_CHARGE:         return new cItemLighterHandler(a_ItemType);
 		case E_ITEM_FIREWORK_ROCKET:     return new cItemFireworkHandler();
@@ -155,6 +154,24 @@ cItemHandler * cItemHandler::CreateItemHandler(int a_ItemType)
 		case E_ITEM_REDSTONE_DUST:       return new cItemRedstoneDustHandler(a_ItemType);
 		case E_ITEM_REDSTONE_REPEATER:   return new cItemRedstoneRepeaterHandler(a_ItemType);
 		case E_ITEM_SHEARS:              return new cItemShearsHandler(a_ItemType);
+
+		case E_BLOCK_WHITE_SHULKER_BOX:
+		case E_BLOCK_ORANGE_SHULKER_BOX:
+		case E_BLOCK_MAGENTA_SHULKER_BOX:
+		case E_BLOCK_LIGHT_BLUE_SHULKER_BOX:
+		case E_BLOCK_YELLOW_SHULKER_BOX:
+		case E_BLOCK_LIME_SHULKER_BOX:
+		case E_BLOCK_PINK_SHULKER_BOX:
+		case E_BLOCK_GRAY_SHULKER_BOX:
+		case E_BLOCK_LIGHT_GRAY_SHULKER_BOX:
+		case E_BLOCK_CYAN_SHULKER_BOX:
+		case E_BLOCK_PURPLE_SHULKER_BOX:
+		case E_BLOCK_BLUE_SHULKER_BOX:
+		case E_BLOCK_BROWN_SHULKER_BOX:
+		case E_BLOCK_GREEN_SHULKER_BOX:
+		case E_BLOCK_RED_SHULKER_BOX:
+		case E_BLOCK_BLACK_SHULKER_BOX:  return new cItemShulkerBoxHandler(a_ItemType);
+
 		case E_ITEM_SIGN:                return new cItemSignHandler(a_ItemType);
 		case E_ITEM_HEAD:                return new cItemMobHeadHandler(a_ItemType);
 		case E_ITEM_SNOWBALL:            return new cItemSnowballHandler();
@@ -245,7 +262,7 @@ cItemHandler * cItemHandler::CreateItemHandler(int a_ItemType)
 			return new cItemMinecartHandler(a_ItemType);
 		}
 
-		// Food (please keep alpha-sorted):
+			// Food (please keep alpha-sorted):
 		case E_ITEM_BAKED_POTATO:     return new cItemFoodHandler(a_ItemType, FoodInfo(5, 6));
 		case E_ITEM_BEETROOT:         return new cItemFoodHandler(a_ItemType, FoodInfo(1, 1.2));
 		case E_ITEM_BREAD:            return new cItemFoodHandler(a_ItemType, FoodInfo(5, 6));
@@ -265,7 +282,7 @@ cItemHandler * cItemHandler::CreateItemHandler(int a_ItemType)
 		case E_ITEM_RAW_RABBIT:       return new cItemFoodHandler(a_ItemType, FoodInfo(3, 1.8));
 		case E_ITEM_STEAK:            return new cItemFoodHandler(a_ItemType, FoodInfo(8, 12.8));
 
-		// Special-case food with their own handler
+			// Special-case food with their own handler
 		case E_ITEM_COOKED_FISH: return new cItemCookedFishHandler();
 		case E_ITEM_GOLDEN_APPLE:        return new cItemGoldenAppleHandler();
 		case E_ITEM_POISONOUS_POTATO: return new cItemPoisonousPotatoHandler();
@@ -274,12 +291,12 @@ cItemHandler * cItemHandler::CreateItemHandler(int a_ItemType)
 		case E_ITEM_ROTTEN_FLESH: return new cItemRottenFleshHandler();
 		case E_ITEM_SPIDER_EYE: return new cItemSpiderEyeHandler();
 
-		// Soup:
+			// Soup:
 		case E_ITEM_BEETROOT_SOUP: return new cItemSoupHandler(a_ItemType, FoodInfo(6, 7.2));
 		case E_ITEM_MUSHROOM_SOUP: return new cItemSoupHandler(a_ItemType, FoodInfo(6, 7.2));
 		case E_ITEM_RABBIT_STEW: return new cItemSoupHandler(a_ItemType, FoodInfo(10, 12));
 
-		// Armor:
+			// Armor:
 		case E_ITEM_LEATHER_CAP:
 		case E_ITEM_GOLD_HELMET:
 		case E_ITEM_CHAIN_HELMET:
@@ -463,12 +480,12 @@ bool cItemHandler::OnItemUse(
 	const Vector3i a_ClickedBlockPos, eBlockFace a_ClickedBlockFace
 )
 {
-	UNUSED(a_World);
-	UNUSED(a_Player);
-	UNUSED(a_PluginInterface);
-	UNUSED(a_Item);
-	UNUSED(a_ClickedBlockPos);
-	UNUSED(a_ClickedBlockFace);
+		UNUSED(a_World);
+		UNUSED(a_Player);
+		UNUSED(a_PluginInterface);
+		UNUSED(a_Item);
+		UNUSED(a_ClickedBlockPos);
+		UNUSED(a_ClickedBlockFace);
 
 	return false;
 }
@@ -485,11 +502,11 @@ bool cItemHandler::OnDiggingBlock(
 	eBlockFace a_ClickedBlockFace
 )
 {
-	UNUSED(a_World);
-	UNUSED(a_Player);
-	UNUSED(a_HeldItem);
-	UNUSED(a_ClickedBlockPos);
-	UNUSED(a_ClickedBlockFace);
+		UNUSED(a_World);
+		UNUSED(a_Player);
+		UNUSED(a_HeldItem);
+		UNUSED(a_ClickedBlockPos);
+		UNUSED(a_ClickedBlockFace);
 
 	return false;
 }
@@ -500,7 +517,7 @@ bool cItemHandler::OnDiggingBlock(
 
 void cItemHandler::OnEntityAttack(cPlayer * a_Attacker, cEntity * a_AttackedEntity)
 {
-	UNUSED(a_AttackedEntity);
+		UNUSED(a_AttackedEntity);
 	a_Attacker->UseEquippedItem(dlaAttackEntity);
 }
 
@@ -510,9 +527,9 @@ void cItemHandler::OnEntityAttack(cPlayer * a_Attacker, cEntity * a_AttackedEnti
 
 void cItemHandler::OnFoodEaten(cWorld * a_World, cPlayer * a_Player, cItem * a_Item)
 {
-	UNUSED(a_World);
-	UNUSED(a_Player);
-	UNUSED(a_Item);
+		UNUSED(a_World);
+		UNUSED(a_Player);
+		UNUSED(a_Item);
 }
 
 
@@ -521,7 +538,7 @@ void cItemHandler::OnFoodEaten(cWorld * a_World, cPlayer * a_Player, cItem * a_I
 
 short cItemHandler::GetDurabilityLossByAction(eDurabilityLostAction a_Action)
 {
-	UNUSED(a_Action);
+		UNUSED(a_Action);
 
 	return 0;
 }
@@ -649,7 +666,7 @@ char cItemHandler::GetMaxStackSize(void)
 		case E_ITEM_TIPPED_ARROW:         return 64;
 		case E_ITEM_WHEAT:                return 64;
 		case E_ITEM_WOODEN_DOOR:          return 64;
-		// By default items don't stack:
+			// By default items don't stack:
 		default:                          return 1;
 	}
 }
@@ -686,7 +703,7 @@ bool cItemHandler::IsFood(void)
 
 bool cItemHandler::IsDrinkable(short a_ItemDamage)
 {
-	UNUSED(a_ItemDamage);
+		UNUSED(a_ItemDamage);
 
 	return false;
 }
@@ -707,7 +724,7 @@ bool cItemHandler::IsPlaceable(void)
 
 bool cItemHandler::CanRepairWithRawMaterial(short a_ItemType)
 {
-	UNUSED(a_ItemType);
+		UNUSED(a_ItemType);
 	return false;
 }
 
@@ -858,7 +875,7 @@ bool cItemHandler::EatItem(cPlayer * a_Player, cItem * a_Item)
 
 cItemHandler::FoodInfo cItemHandler::GetFoodInfo(const cItem * a_Item)
 {
-	UNUSED(a_Item);
+		UNUSED(a_Item);
 	return FoodInfo(0, 0);
 }
 

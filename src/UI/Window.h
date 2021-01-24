@@ -52,7 +52,7 @@ Inventory painting, introduced in 1.5, is handled by the window, too
 */
 class cWindow
 {
-public:
+  public:
 	enum WindowType
 	{
 		wtInventory   = -1,  // This value is never actually sent to a client
@@ -68,6 +68,7 @@ public:
 		wtHopper      = 9,
 		wtDropper     = 10,
 		wtAnimalChest = 11,
+		wtShulkerBox  = 12,
 	};
 
 	// tolua_end
@@ -174,7 +175,7 @@ public:
 	/** Used by cSlotAreas to send individual slots to clients, a_RelativeSlotNum is the slot number relative to a_SlotArea */
 	void SendSlot(cPlayer & a_Player, cSlotArea * a_SlotArea, int a_RelativeSlotNum);
 
-protected:
+  protected:
 
 	cSlotAreas m_SlotAreas;
 

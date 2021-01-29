@@ -1,0 +1,1418 @@
+
+-- stronghold.cubeset
+
+-- Defines the prefabs in the group stronghold
+
+-- NOTE: This file has been generated automatically by GalExport!
+-- Any manual changes will be overwritten by the next automatic export!
+
+
+
+
+Cubeset =
+{
+	Metadata =
+	{
+		CubesetFormatVersion = 1,
+		ExportDate = "2021-01-28 15:47:22",
+		["AllowedBiomes"] = "",
+		["IntendedUse"] = "stronghold",
+	},
+
+	Pieces =
+	{
+		{
+			OriginData =
+			{
+				ExportName   = "Intersection1",
+				Name         = "Stronghold 3",
+				GalleryName  = "Stronghold",
+				GalleryIndex = "3",
+				ID           = "4",
+				CreatorName  = "B8xer",
+			},
+			Size =
+			{
+				x = 14,
+				y = 7,
+				z = 14,
+			},
+			Hitbox =
+			{
+				MinX = 2,
+				MinY = 0,
+				MinZ = 1,
+				MaxX = 12,
+				MaxY = 6,
+				MaxZ = 11,
+			},
+			StructureBox =
+			{
+				MinX = 0,
+				MinY = 0,
+				MinZ = 0,
+				MaxX = 13,
+				MaxY = 6,
+				MaxZ = 13,
+			},
+			Connectors =
+			{
+				{
+					Type = 2,
+					RelX = 7,
+					RelY = 1,
+					RelZ = 13,
+					Direction = "z+",
+				},
+				{
+					Type = 2,
+					RelX = 1,
+					RelY = 1,
+					RelZ = 6,
+					Direction = "x-",
+				},
+				{
+					Type = 2,
+					RelX = 7,
+					RelY = 1,
+					RelZ = 0,
+					Direction = "z-",
+				},
+				{
+					Type = 2,
+					RelX = 13,
+					RelY = 1,
+					RelZ = 6,
+					Direction = "x+",
+				},
+			},
+			Metadata =
+			{
+				["AddWeightIfSame"] = "0",
+				["AllowedRotations"] = "7",
+				["DefaultWeight"] = "100",
+				["DepthWeight"] = "",
+				["ExpandFloorStrategy"] = "None",
+				["IsStarting"] = "1",
+				["MergeStrategy"] = "msSpongePrint",
+				["MoveToGround"] = "0",
+			},
+			BlockDefinitions =
+			{
+				".:  0: 0",  -- air
+				"a: 97: 2",  -- silverfishblock
+				"b: 98: 1",  -- stonebricks
+				"c: 98: 2",  -- stonebricks
+				"d: 98: 0",  -- stonebricks
+				"e:  0: 8",  -- air
+				"f: 64: 3",  -- woodendoorblock
+				"g: 71: 0",  -- irondoorblock
+				"h: 64: 0",  -- woodendoorblock
+				"i: 71: 1",  -- irondoorblock
+				"j: 64: 8",  -- woodendoorblock
+				"k: 71: 8",  -- irondoorblock
+				"l: 50: 4",  -- torch
+				"m: 19: 0",  -- sponge
+				"n: 77: 2",  -- stonebutton
+				"o: 77: 1",  -- stonebutton
+				"p: 77: 4",  -- stonebutton
+				"q: 71: 9",  -- irondoorblock
+				"r: 77: 3",  -- stonebutton
+				"s:  0: 2",  -- air
+			},
+			BlockData =
+			{
+				-- Level 0
+				".....abcac....",  --  0
+				"..ddbabbcddbb.",  --  1
+				"..dddbbcdcbcc.",  --  2
+				"..dddbdcdbadc.",  --  3
+				"bbcbddbbbdcaad",  --  4
+				"ddbddddddbccdb",  --  5
+				"cdbdcdbbdbddda",  --  6
+				"cdbbdddbcddbab",  --  7
+				"bbbccdbbdbbbdd",  --  8
+				"..ddcddabdddd.",  --  9
+				"..dccdbbcdbdc.",  -- 10
+				"..cdbbdcdbdbd.",  -- 11
+				"....edddbde...",  -- 12
+				"....ebcbcbe...",  -- 13
+
+				-- Level 1
+				".....adfdc....",  --  0
+				"..dddc...bddd.",  --  1
+				"..dd........c.",  --  2
+				"..dd........c.",  --  3
+				"dbd.........db",  --  4
+				"..d..........d",  --  5
+				"..g..........h",  --  6
+				"..d..........d",  --  7
+				"dbb.........ad",  --  8
+				"..d.........d.",  --  9
+				"..b.........d.",  -- 10
+				"..bdbd...dccc.",  -- 11
+				"....ebdidde...",  -- 12
+				"....eb...de...",  -- 13
+
+				-- Level 2
+				".....bdjdd....",  --  0
+				"..ddcb...dcbd.",  --  1
+				"..dd........b.",  --  2
+				"..dd........b.",  --  3
+				"ddb.........bb",  --  4
+				"..d..........d",  --  5
+				"..k..........j",  --  6
+				"lndo.........d",  --  7
+				"ddd.........bb",  --  8
+				"..d.........b.",  --  9
+				"..b.........d.",  -- 10
+				"..bdda..pdbdd.",  -- 11
+				"....eddqdde...",  -- 12
+				"....ea..rde...",  -- 13
+
+				-- Level 3
+				".....ddddd....",  --  0
+				"..dddd...cbcd.",  --  1
+				"..dd........c.",  --  2
+				"..dd........c.",  --  3
+				"ddb.........cb",  --  4
+				"..d..........d",  --  5
+				"..d..........d",  --  6
+				"..d..........d",  --  7
+				"cdc.........dd",  --  8
+				"..d.........d.",  --  9
+				"..a.........c.",  -- 10
+				"..cbdb...cddb.",  -- 11
+				"....ebdddae...",  -- 12
+				"....ed...de...",  -- 13
+
+				-- Level 4
+				".....abbcc....",  --  0
+				"..ddbbdddddbb.",  --  1
+				"..dd........d.",  --  2
+				"..dd........d.",  --  3
+				"ddd.........cb",  --  4
+				"ddb.........ad",  --  5
+				"bdd.........ac",  --  6
+				"abb.........bd",  --  7
+				"bab.........bd",  --  8
+				"..b.........d.",  --  9
+				"..d.........d.",  -- 10
+				"..dadcdbbddbb.",  -- 11
+				"....ebbddbe...",  -- 12
+				"....ebbbdde...",  -- 13
+
+				-- Level 5
+				"..............",  --  0
+				"..cdcdbbcbbcd.",  --  1
+				"..dd........c.",  --  2
+				"..cd........d.",  --  3
+				"..c.........d.",  --  4
+				"..b.........d.",  --  5
+				"..d.........d.",  --  6
+				"..d.........d.",  --  7
+				"..d.........b.",  --  8
+				"..b.........c.",  --  9
+				"..c.........b.",  -- 10
+				"..ddcddddbddd.",  -- 11
+				"....eeeeese...",  -- 12
+				"....eeeeeee...",  -- 13
+
+				-- Level 6
+				"..............",  --  0
+				"..ccddbbcdbcb.",  --  1
+				"..dddcbddbdcd.",  --  2
+				"..ddcdbcdddbd.",  --  3
+				"..cbbbbbbdccd.",  --  4
+				"..dbcdbcdddac.",  --  5
+				"..bbbdbbdddbd.",  --  6
+				"..acddddbbbdd.",  --  7
+				"..bddbbdbdbdd.",  --  8
+				"..bbdccdcbddb.",  --  9
+				"..dbdddbddddc.",  -- 10
+				"..bddddcddddb.",  -- 11
+				"....eeeee.e...",  -- 12
+				"....eeeeeee...",  -- 13
+
+			},
+		},  -- Intersection1
+
+
+
+		{
+			OriginData =
+			{
+				ExportName   = "Corridor1",
+				Name         = "Stronghold 6",
+				GalleryName  = "Stronghold",
+				GalleryIndex = "6",
+				ID           = "7",
+				CreatorName  = "B8xer",
+			},
+			Size =
+			{
+				x = 24,
+				y = 5,
+				z = 5,
+			},
+			Hitbox =
+			{
+				MinX = 0,
+				MinY = 0,
+				MinZ = 0,
+				MaxX = 23,
+				MaxY = 4,
+				MaxZ = 4,
+			},
+			Connectors =
+			{
+				{
+					Type = 2,
+					RelX = 2,
+					RelY = 1,
+					RelZ = 4,
+					Direction = "z+",
+				},
+				{
+					Type = 2,
+					RelX = 8,
+					RelY = 1,
+					RelZ = 4,
+					Direction = "z+",
+				},
+				{
+					Type = 2,
+					RelX = 21,
+					RelY = 1,
+					RelZ = 4,
+					Direction = "z+",
+				},
+			},
+			Metadata =
+			{
+				["AddWeightIfSame"] = "0",
+				["AllowedRotations"] = "7",
+				["DefaultWeight"] = "100",
+				["DepthWeight"] = "",
+				["ExpandFloorStrategy"] = "None",
+				["IsStarting"] = "0",
+				["MergeStrategy"] = "msSpongePrint",
+				["MoveToGround"] = "0",
+			},
+			BlockDefinitions =
+			{
+				".:  0: 0",  -- air
+				"a: 98: 1",  -- stonebricks
+				"b: 98: 0",  -- stonebricks
+				"c: 97: 2",  -- silverfishblock
+				"d: 98: 2",  -- stonebricks
+				"e:101: 0",  -- ironbars
+				"f: 64: 2",  -- woodendoorblock
+				"g: 64: 3",  -- woodendoorblock
+				"h: 50: 3",  -- torch
+				"i: 64: 8",  -- woodendoorblock
+				"m: 19: 0",  -- sponge
+			},
+			BlockData =
+			{
+				-- Level 0
+				"ababaabbaacbbddbaacbabaa",  --  0
+				"ddbbbddcabaadbacbadbdbbb",  --  1
+				"cbbbaabdaadbadbababababb",  --  2
+				"adbdbbaaacdcbbabbabbabbb",  --  3
+				"abbdabbdbdabaccabbbbbbaa",  --  4
+
+				-- Level 1
+				"adbbbababadbababdddabbda",  --  0
+				"b...e......b......e....a",  --  1
+				"b..........f...........d",  --  2
+				"a...e......b......e....b",  --  3
+				"b...bbb...bbcabdbaaabgbb",  --  4
+
+				-- Level 2
+				"ddbdbbaaaabbddbdbdabbabb",  --  0
+				"c...e......b.h....e....a",  --  1
+				"d..........i...........b",  --  2
+				"a...e......b......e....b",  --  3
+				"d...bbd...adaabbbababibb",  --  4
+
+				-- Level 3
+				"bbdabadbdadbddbddbdaabdd",  --  0
+				"d...e......b......e....d",  --  1
+				"b...e......b......e....b",  --  2
+				"b...e......b......e....a",  --  3
+				"c...adb...daabddbbabbbbb",  --  4
+
+				-- Level 4
+				"abddbaadabbbaabacdddbbbb",  --  0
+				"dbddbaddcbababbbddabbbaa",  --  1
+				"adabaabdabaacaabbbddbbaa",  --  2
+				"cbbbcdabbcdbbbdbabababba",  --  3
+				"baababadbacababbdbbcbbba",  --  4
+
+			},
+		},  -- Corridor1
+
+
+
+		{
+			OriginData =
+			{
+				ExportName   = "Stairs1",
+				Name         = "Stairs1",
+				GalleryName  = "Stronghold",
+				GalleryIndex = "4",
+				ID           = "5",
+				CreatorName  = "B8xer",
+			},
+			Size =
+			{
+				x = 6,
+				y = 11,
+				z = 11,
+			},
+			Hitbox =
+			{
+				MinX = 0,
+				MinY = 0,
+				MinZ = 0,
+				MaxX = 5,
+				MaxY = 10,
+				MaxZ = 10,
+			},
+			Connectors =
+			{
+				{
+					Type = -1,
+					RelX = -1,
+					RelY = 1,
+					RelZ = 2,
+					Direction = "x-",
+				},
+				{
+					Type = -1,
+					RelX = 3,
+					RelY = 7,
+					RelZ = 10,
+					Direction = "z+",
+				},
+			},
+			Metadata =
+			{
+				["AddWeightIfSame"] = "0",
+				["AllowedRotations"] = "7",
+				["DefaultWeight"] = "100",
+				["DepthWeight"] = "",
+				["ExpandFloorStrategy"] = "None",
+				["IsStarting"] = "0",
+				["MergeStrategy"] = "msSpongePrint",
+				["MoveToGround"] = "0",
+			},
+			BlockDefinitions =
+			{
+				".:  0: 0",  -- air
+				"a: 98: 1",  -- stonebricks
+				"b: 98: 0",  -- stonebricks
+				"c: 97: 2",  -- silverfishblock
+				"d: 98: 2",  -- stonebricks
+				"e: 64: 2",  -- woodendoorblock
+				"f: 44: 0",  -- stone_slab
+				"g: 64: 9",  -- woodendoorblock
+				"h: 71: 3",  -- irondoorblock
+				"i: 77: 4",  -- stonebutton
+				"j: 71: 8",  -- irondoorblock
+				"k: 77: 3",  -- stonebutton
+				"m: 19: 0",  -- sponge
+			},
+			BlockData =
+			{
+				-- Level 0
+				"abbbbb",  --  0
+				"cbbcbb",  --  1
+				"bcbadb",  --  2
+				"abbbad",  --  3
+				"abddbb",  --  4
+				".abbad",  --  5
+				".daaab",  --  6
+				".bbdba",  --  7
+				".ddddd",  --  8
+				".abacb",  --  9
+				"......",  -- 10
+
+				-- Level 1
+				"bdaddb",  --  0
+				"b....b",  --  1
+				"e....d",  --  2
+				"b....d",  --  3
+				"ab...b",  --  4
+				".d...b",  --  5
+				".af..b",  --  6
+				".db..a",  --  7
+				".db..a",  --  8
+				".dbbab",  --  9
+				"......",  -- 10
+
+				-- Level 2
+				"dadbaa",  --  0
+				"b....b",  --  1
+				"g....d",  --  2
+				"b....a",  --  3
+				"bb...b",  --  4
+				".d...b",  --  5
+				".a...d",  --  6
+				".b...d",  --  7
+				".afbba",  --  8
+				".ddbba",  --  9
+				"......",  -- 10
+
+				-- Level 3
+				"bbdbab",  --  0
+				"b....b",  --  1
+				"b....c",  --  2
+				"b....d",  --  3
+				"ba...a",  --  4
+				".a...c",  --  5
+				".a..bd",  --  6
+				".a..bb",  --  7
+				".b..fb",  --  8
+				".bbaad",  --  9
+				"......",  -- 10
+
+				-- Level 4
+				"badcba",  --  0
+				"aabacb",  --  1
+				"cbbbbb",  --  2
+				"babdaa",  --  3
+				"daadbc",  --  4
+				".aaddb",  --  5
+				".bbbfa",  --  6
+				".a...a",  --  7
+				".b...b",  --  8
+				".dddba",  --  9
+				"......",  -- 10
+
+				-- Level 5
+				"......",  --  0
+				"......",  --  1
+				"......",  --  2
+				"......",  --  3
+				"......",  --  4
+				".abbbb",  --  5
+				".df..b",  --  6
+				".db..b",  --  7
+				".bb..a",  --  8
+				".abcbd",  --  9
+				"......",  -- 10
+
+				-- Level 6
+				"......",  --  0
+				"......",  --  1
+				"......",  --  2
+				"......",  --  3
+				"......",  --  4
+				".ababa",  --  5
+				".b...b",  --  6
+				".d...b",  --  7
+				".bfb.b",  --  8
+				".abbbb",  --  9
+				"bcabab",  -- 10
+
+				-- Level 7
+				"......",  --  0
+				"......",  --  1
+				"......",  --  2
+				"......",  --  3
+				"......",  --  4
+				".aadba",  --  5
+				".a...a",  --  6
+				".b...b",  --  7
+				".a...a",  --  8
+				".bbhba",  --  9
+				"da...b",  -- 10
+
+				-- Level 8
+				"......",  --  0
+				"......",  --  1
+				"......",  --  2
+				"......",  --  3
+				"......",  --  4
+				".bbbbb",  --  5
+				".d...b",  --  6
+				".b...a",  --  7
+				".a..ib",  --  8
+				".dbjbd",  --  9
+				"aa..kb",  -- 10
+
+				-- Level 9
+				"......",  --  0
+				"......",  --  1
+				"......",  --  2
+				"......",  --  3
+				"......",  --  4
+				".cbbbb",  --  5
+				".a...b",  --  6
+				".a...b",  --  7
+				".d...b",  --  8
+				".cbbba",  --  9
+				"da...b",  -- 10
+
+				-- Level 10
+				"......",  --  0
+				"......",  --  1
+				"......",  --  2
+				"......",  --  3
+				"......",  --  4
+				".abbab",  --  5
+				".bbadb",  --  6
+				".baaab",  --  7
+				".bdabb",  --  8
+				".dbbbb",  --  9
+				"baadbb",  -- 10
+
+			},
+		},  -- Stairs1
+
+
+
+		{
+			OriginData =
+			{
+				ExportName   = "Stairs2",
+				Name         = "Stronghold 5",
+				GalleryName  = "Stronghold",
+				GalleryIndex = "5",
+				ID           = "6",
+				CreatorName  = "B8xer",
+			},
+			Size =
+			{
+				x = 11,
+				y = 9,
+				z = 10,
+			},
+			Hitbox =
+			{
+				MinX = 0,
+				MinY = 0,
+				MinZ = 0,
+				MaxX = 10,
+				MaxY = 8,
+				MaxZ = 9,
+			},
+			Connectors =
+			{
+				{
+					Type = 2,
+					RelX = 2,
+					RelY = 5,
+					RelZ = 9,
+					Direction = "z+",
+				},
+				{
+					Type = 2,
+					RelX = 8,
+					RelY = 3,
+					RelZ = 0,
+					Direction = "z-",
+				},
+				{
+					Type = 2,
+					RelX = 10,
+					RelY = 3,
+					RelZ = 5,
+					Direction = "x+",
+				},
+				{
+					Type = 2,
+					RelX = 0,
+					RelY = 1,
+					RelZ = 6,
+					Direction = "x-",
+				},
+			},
+			Metadata =
+			{
+				["AddWeightIfSame"] = "0",
+				["AllowedRotations"] = "7",
+				["DefaultWeight"] = "100",
+				["DepthWeight"] = "",
+				["ExpandFloorStrategy"] = "None",
+				["IsStarting"] = "0",
+				["MergeStrategy"] = "msSpongePrint",
+				["MoveToGround"] = "0",
+			},
+			BlockDefinitions =
+			{
+				".:  0: 0",  -- air
+				"a: 98: 2",  -- stonebricks
+				"b: 98: 0",  -- stonebricks
+				"c: 98: 1",  -- stonebricks
+				"d: 97: 2",  -- silverfishblock
+				"e: 44: 0",  -- stone_slab
+				"f: 64: 6",  -- woodendoorblock
+				"g: 64: 9",  -- woodendoorblock
+				"h: 43: 0",  -- doublestoneslab
+				"i: 50: 1",  -- torch
+				"m: 19: 0",  -- sponge
+			},
+			BlockData =
+			{
+				-- Level 0
+				"ababccacbcb",  --  0
+				"ccabaaaaacc",  --  1
+				"dccbcbbbdcc",  --  2
+				"cbcbcbccbbb",  --  3
+				"acbabbbabcb",  --  4
+				"babbcbccbcb",  --  5
+				"ccababaabab",  --  6
+				"cbbccbcbccc",  --  7
+				"bcabcaabdab",  --  8
+				"bcbbadbbbcb",  --  9
+
+				-- Level 1
+				"bcbdbcbbbaa",  --  0
+				"a.........b",  --  1
+				"b.........b",  --  2
+				"a.........a",  --  3
+				"accbca....c",  --  4
+				".eac......c",  --  5
+				".eab......b",  --  6
+				".ecc......b",  --  7
+				"bbbcbb....c",  --  8
+				"cbacbaccbbb",  --  9
+
+				-- Level 2
+				"bbbcccbbbbb",  --  0
+				"b...abbbbbc",  --  1
+				"d...ccabcbc",  --  2
+				"a...cbcbacb",  --  3
+				"ccbbccbccac",  --  4
+				"...ecaccbbb",  --  5
+				"...ebbabcbb",  --  6
+				"...ebbbbbbc",  --  7
+				"cababdabbcc",  --  8
+				"cabbbbbccba",  --  9
+
+				-- Level 3
+				"acbccbc...a",  --  0
+				"c...cbe...b",  --  1
+				"c...dbe...b",  --  2
+				"a...cbe...b",  --  3
+				"cbbbbc....b",  --  4
+				"..........f",  --  5
+				"..........b",  --  6
+				"..........c",  --  7
+				"bbcaac....b",  --  8
+				"bcbbbcabcba",  --  9
+
+				-- Level 4
+				"bcacdda...b",  --  0
+				"abbce.....b",  --  1
+				"dbcae.....b",  --  2
+				"abbbe.....c",  --  3
+				"cbbcdb....b",  --  4
+				"b.........g",  --  5
+				"c.........b",  --  6
+				"b.........c",  --  7
+				"aacccb....b",  --  8
+				"bcbccbcbabb",  --  9
+
+				-- Level 5
+				"caacccd...a",  --  0
+				"c.........b",  --  1
+				"d.........b",  --  2
+				"c.........a",  --  3
+				"beee......b",  --  4
+				"bhhh......b",  --  5
+				"ahhhi.....b",  --  6
+				"dhhh......c",  --  7
+				"ceee......b",  --  8
+				"a...dbbbbbb",  --  9
+
+				-- Level 6
+				"bbbcbbbcbbc",  --  0
+				"b.........c",  --  1
+				"c.........a",  --  2
+				"c.........c",  --  3
+				"b.........a",  --  4
+				"b.........b",  --  5
+				"b.........a",  --  6
+				"c.........b",  --  7
+				"a.........c",  --  8
+				"b...badbbaa",  --  9
+
+				-- Level 7
+				"cdbbbccbbcc",  --  0
+				"b.........b",  --  1
+				"b.........c",  --  2
+				"c.........c",  --  3
+				"b.........a",  --  4
+				"b.........b",  --  5
+				"c.........b",  --  6
+				"a.........b",  --  7
+				"b.........b",  --  8
+				"c...cbbccbb",  --  9
+
+				-- Level 8
+				"bbcdccccccb",  --  0
+				"babbbbbbccb",  --  1
+				"aacbbbacbba",  --  2
+				"dccccbbabab",  --  3
+				"acbccbaabbb",  --  4
+				"bbccbdbccbb",  --  5
+				"bbacbccbbbb",  --  6
+				"bbbbabbbcbb",  --  7
+				"ddbbbaaabca",  --  8
+				"cbbbbbbcdbc",  --  9
+
+			},
+		},  -- Stairs2
+
+
+
+		{
+			OriginData =
+			{
+				ExportName   = "portalRoom",
+				Name         = "portalRoom",
+				GalleryName  = "Stronghold",
+				GalleryIndex = "1",
+				ID           = "2",
+				CreatorName  = "B8xer",
+			},
+			Size =
+			{
+				x = 11,
+				y = 8,
+				z = 17,
+			},
+			Hitbox =
+			{
+				MinX = 0,
+				MinY = 0,
+				MinZ = 0,
+				MaxX = 10,
+				MaxY = 7,
+				MaxZ = 16,
+			},
+			Connectors =
+			{
+				{
+					Type = -1,
+					RelX = 5,
+					RelY = 1,
+					RelZ = 16,
+					Direction = "z+",
+				},
+			},
+			Metadata =
+			{
+				["AddWeightIfSame"] = "0",
+				["AllowedRotations"] = "7",
+				["DefaultWeight"] = "100",
+				["DepthWeight"] = "",
+				["ExpandFloorStrategy"] = "None",
+				["IsStarting"] = "0",
+				["LimitPieces"] = "1",
+				["MergeStrategy"] = "msSpongePrint",
+				["MoveToGround"] = "0",
+			},
+			BlockDefinitions =
+			{
+				".:  0: 0",  -- air
+				"a: 98: 0",  -- stonebricks
+				"b: 98: 2",  -- stonebricks
+				"c: 97: 2",  -- silverfishblock
+				"d: 98: 1",  -- stonebricks
+				"e: 97: 3",  -- silverfishblock
+				"f:109: 3",  -- stonebrickstairs
+				"g:101: 0",  -- ironbars
+				"h:120: 0",  -- endportalframe
+				"i:120: 3",  -- endportalframe
+				"j:120: 1",  -- endportalframe
+				"k:120: 7",  -- endportalframe
+				"l:120: 2",  -- endportalframe
+				"m: 19: 0",  -- sponge
+				"n:120: 6",  -- endportalframe
+				"o: 52: 0",  -- mobspawner
+				"p:  1: 0",  -- stone
+			},
+			BlockData =
+			{
+				-- Level 0
+				"abcbdbbdaab",  --  0
+				"daaaebaabaa",  --  1
+				"dbdadbdaabd",  --  2
+				"aadbababbab",  --  3
+				"daabaabbddb",  --  4
+				"abddbdbdacc",  --  5
+				"aadaaadddbd",  --  6
+				"aabaddbbbaa",  --  7
+				"acabadadadb",  --  8
+				"baddaaaaadc",  --  9
+				"bcabbddadaa",  -- 10
+				"dabddaadcdd",  -- 11
+				"aabdacabaad",  -- 12
+				"addaadaddda",  -- 13
+				"acabdaaaaad",  -- 14
+				"aaaaaadbbaa",  -- 15
+				"ddbdaabaadd",  -- 16
+
+				-- Level 1
+				"adaddaaaaaa",  --  0
+				"a.........d",  --  1
+				"b.........d",  --  2
+				"a..ddaba..a",  --  3
+				"a..b...a..d",  --  4
+				"d..d...c..d",  --  5
+				"d..d...d..a",  --  6
+				"d..daaab..d",  --  7
+				"a...daa...a",  --  8
+				"a...aab...a",  --  9
+				"d...bac...c",  -- 10
+				"abb.fff.aca",  -- 11
+				"d.b.....a.b",  -- 12
+				"a.a.....a.b",  -- 13
+				"d.a.....d.a",  -- 14
+				"daacg.gcaad",  -- 15
+				"adaa...baab",  -- 16
+
+				-- Level 2
+				"baaadbdbdaa",  --  0
+				"a.........a",  --  1
+				"a.........a",  --  2
+				"b.........a",  --  3
+				"d.........d",  --  4
+				"a.........b",  --  5
+				"a.........a",  --  6
+				"d.........a",  --  7
+				"a...bdb...d",  --  8
+				"a...cbd...d",  --  9
+				"d...fff...a",  -- 10
+				"d.........a",  -- 11
+				"b.........a",  -- 12
+				"d.........d",  -- 13
+				"a.........d",  -- 14
+				"aabag.gadab",  -- 15
+				"addd...adbc",  -- 16
+
+				-- Level 3
+				"aagdgdgdgbb",  --  0
+				"a.........a",  --  1
+				"g.........g",  --  2
+				"a...hhh...d",  --  3
+				"g..i...j..g",  --  4
+				"a..i...j..a",  --  5
+				"g..k...j..g",  --  6
+				"b...lln...b",  --  7
+				"g...abd...g",  --  8
+				"a...fof...a",  --  9
+				"g.........g",  -- 10
+				"b.........d",  -- 11
+				"g.........g",  -- 12
+				"a.........d",  -- 13
+				"d.........a",  -- 14
+				"aaddgggcdbb",  -- 15
+				"aaad...daad",  -- 16
+
+				-- Level 4
+				"aagagbgbgbd",  --  0
+				"d.........d",  --  1
+				"g.........g",  --  2
+				"c.........d",  --  3
+				"g.........g",  --  4
+				"a.........b",  --  5
+				"g.........g",  --  6
+				"b.........a",  --  7
+				"g.........g",  --  8
+				"d.........a",  --  9
+				"g.........g",  -- 10
+				"d.........b",  -- 11
+				"g.........g",  -- 12
+				"d.........c",  -- 13
+				"b.........b",  -- 14
+				"abdaaabaaab",  -- 15
+				"aacaaaddada",  -- 16
+
+				-- Level 5
+				"abadadbdbdd",  --  0
+				"d.........d",  --  1
+				"d.........d",  --  2
+				"a.........a",  --  3
+				"a.........d",  --  4
+				"d.........d",  --  5
+				"a.........a",  --  6
+				"c.........a",  --  7
+				"a.........b",  --  8
+				"d.........a",  --  9
+				"d.........a",  -- 10
+				"b.........c",  -- 11
+				"b.........d",  -- 12
+				"a.........a",  -- 13
+				"a.........d",  -- 14
+				"aaaacbdddaa",  -- 15
+				"dbbaaacaaab",  -- 16
+
+				-- Level 6
+				"ddddaacaaab",  --  0
+				"dbaadbadbdd",  --  1
+				"da.......dd",  --  2
+				"ad.......ad",  --  3
+				"db.......cd",  --  4
+				"da.......aa",  --  5
+				"bd.......da",  --  6
+				"db.......ad",  --  7
+				"bb.......ac",  --  8
+				"da.......ad",  --  9
+				"dd.......da",  -- 10
+				"aa.......aa",  -- 11
+				"ab.......cd",  -- 12
+				"ddbdddddacc",  -- 13
+				"aaaaaabbddd",  -- 14
+				"daabadbdaaa",  -- 15
+				"dbddabaadaa",  -- 16
+
+				-- Level 7
+				"aaadaaaadba",  --  0
+				"adadbaadcbb",  --  1
+				"abddaababcb",  --  2
+				"baaddaabdba",  --  3
+				"aabadccadba",  --  4
+				"adaaddaaddb",  --  5
+				"adcaaaaddad",  --  6
+				"daaaadbaddd",  --  7
+				"addadaabadd",  --  8
+				"dbabdabbbbd",  --  9
+				"aadddadabaa",  -- 10
+				"daddbdababa",  -- 11
+				"acdddaaadad",  -- 12
+				"bbaadcdaaad",  -- 13
+				"aababbdbada",  -- 14
+				"ddddbaabbab",  -- 15
+				"ppppppppppp",  -- 16
+
+			},
+		},  -- portalRoom
+
+
+
+		{
+			OriginData =
+			{
+				ExportName   = "stronghold_1",
+				Name         = "Library1",
+				GalleryName  = "Stronghold",
+				GalleryIndex = "0",
+				ID           = "1",
+				CreatorName  = "B8xer",
+			},
+			Size =
+			{
+				x = 15,
+				y = 11,
+				z = 14,
+			},
+			Hitbox =
+			{
+				MinX = 0,
+				MinY = 0,
+				MinZ = 0,
+				MaxX = 14,
+				MaxY = 10,
+				MaxZ = 13,
+			},
+			Connectors =
+			{
+				{
+					Type = -1,
+					RelX = 0,
+					RelY = 1,
+					RelZ = 5,
+					Direction = "x-",
+				},
+			},
+			Metadata =
+			{
+				["AddWeightIfSame"] = "0",
+				["AllowedRotations"] = "7",
+				["DefaultWeight"] = "100",
+				["DepthWeight"] = "",
+				["ExpandFloorStrategy"] = "None",
+				["IsStarting"] = "0",
+				["MergeStrategy"] = "msSpongePrint",
+				["MoveToGround"] = "0",
+			},
+			BlockDefinitions =
+			{
+				".:  0: 0",  -- air
+				"a: 98: 0",  -- stonebricks
+				"b: 98: 1",  -- stonebricks
+				"c: 98: 2",  -- stonebricks
+				"d: 97: 2",  -- silverfishblock
+				"e:  5: 0",  -- planks
+				"f: 47: 0",  -- bookshelf
+				"g: 30: 0",  -- web
+				"h: 65: 4",  -- ladder
+				"i: 50: 3",  -- torch
+				"j: 54: 2",  -- chest
+				"k: 50: 4",  -- torch
+				"l: 85: 0",  -- fence
+				"m: 19: 0",  -- sponge
+				"n:  1: 0",  -- stone
+				"o: 50: 5",  -- torch
+			},
+			BlockData =
+			{
+				-- Level 0
+				"aa.......abaccb",  --  0
+				"ba.......bcacab",  --  1
+				"aaacabcbabacbbc",  --  2
+				"aababcaababdcaa",  --  3
+				"cabaacabbbaaaad",  --  4
+				"cbacbbaaabaaacb",  --  5
+				"abbaababbaacbcc",  --  6
+				"acbbaccbcbccacd",  --  7
+				"daacacaccabaabc",  --  8
+				"acbbabaaaaabbca",  --  9
+				"ccbbbbacbcbaaba",  -- 10
+				"aabaabcacabaaba",  -- 11
+				"aaababaaabcbbba",  -- 12
+				"adbbcdaaccbabaa",  -- 13
+
+				-- Level 1
+				"bb........aaaaa",  --  0
+				"befffefffefffeb",  --  1
+				"d.............a",  --  2
+				"b..f.f.f.f.f..b",  --  3
+				"...f.f.f.f.f..c",  --  4
+				"...g.......g..d",  --  5
+				"...f.f.f.f.f..a",  --  6
+				"c..f.f.f.f.f..b",  --  7
+				"b............ga",  --  8
+				"b..f.f.f.f.f..a",  --  9
+				"b..f.f.f.f.f.ha",  -- 10
+				"b............ga",  -- 11
+				"aefffefffefffea",  -- 12
+				"bcaaacaaaabbcda",  -- 13
+
+				-- Level 2
+				"ac........bacca",  --  0
+				"aefffefffefffea",  --  1
+				"c.....g.......b",  --  2
+				"c..f.f.f.f.f..a",  --  3
+				"...f.f.f.f.f..c",  --  4
+				"...........g..a",  --  5
+				"...f.f.f.f.f..a",  --  6
+				"c..f.fgf.f.f..b",  --  7
+				"c........g....a",  --  8
+				"b..fgf.f.f.f..a",  --  9
+				"a..f.f.f.f.f.ha",  -- 10
+				"d........g...gd",  -- 11
+				"aefffefffefffec",  -- 12
+				"abaacbbabcbbccc",  -- 13
+
+				-- Level 3
+				"..........caaac",  --  0
+				"befffefffefffeb",  --  1
+				"ai...i...ig..ic",  --  2
+				"b..f.jgf.f.fg.b",  --  3
+				"...f.f.f.f.f..b",  --  4
+				"..........g...a",  --  5
+				"...f.f.f.f.f..b",  --  6
+				"a..f.f.f.f.f..b",  --  7
+				"b.............c",  --  8
+				"a..f.f.f.f.f..b",  --  9
+				"a..f.f.f.f.f.hb",  -- 10
+				"dk.g.k...k...kb",  -- 11
+				"befffefffefffeb",  -- 12
+				"aabaabcaaaaaaaa",  -- 13
+
+				-- Level 4
+				"..........bbbca",  --  0
+				"befffefffefffeb",  --  1
+				"bg...g........c",  --  2
+				"c............gb",  --  3
+				"a...........g.a",  --  4
+				"c.............b",  --  5
+				"c.............a",  --  6
+				"a....g........b",  --  7
+				"a.............b",  --  8
+				"b......g......a",  --  9
+				"c....g.......hc",  -- 10
+				"a.............b",  -- 11
+				"aefffefffefffec",  -- 12
+				"badabaaadbaccbc",  -- 13
+
+				-- Level 5
+				"..........caaaa",  --  0
+				"beeeeeeeeeeeeeb",  --  1
+				"beeeeeeeeeeeeec",  --  2
+				"aeeeeeeeeeeeeea",  --  3
+				"aee.........eea",  --  4
+				"bee.........eeb",  --  5
+				"aee.........eea",  --  6
+				"aee.........eea",  --  7
+				"aee........eeea",  --  8
+				"bee.......eeeeb",  --  9
+				"ceeeeeeeeeeeehb",  -- 10
+				"ceeeeeeeeeeeeea",  -- 11
+				"aeeeeeeeeeeeeec",  -- 12
+				"bbabbdaaaadabbb",  -- 13
+
+				-- Level 6
+				"ab........aaaaa",  --  0
+				"befffefffefffea",  --  1
+				"b.............a",  --  2
+				"a.lllllllllll.c",  --  3
+				"a.l.........l.b",  --  4
+				"a.l.........l.d",  --  5
+				"b.l.........l.c",  --  6
+				"a.l.........l.c",  --  7
+				"b.l........ll.n",  --  8
+				"a.l.......ll..n",  --  9
+				"b.lllllllll..hc",  -- 10
+				"c.............a",  -- 11
+				"cefffefffefffeb",  -- 12
+				"adacaaabacbaaba",  -- 13
+
+				-- Level 7
+				"cc........baaaa",  --  0
+				"aefffefffefffeb",  --  1
+				"c.............c",  --  2
+				"a.............b",  --  3
+				"c.............b",  --  4
+				"a......l......b",  --  5
+				"c.....lll.....c",  --  6
+				"b.....lll.....c",  --  7
+				"a......l......b",  --  8
+				"d.............n",  --  9
+				"b............ha",  -- 10
+				"b.............b",  -- 11
+				"aefffefffefffea",  -- 12
+				"bcabadaaaacbcca",  -- 13
+
+				-- Level 8
+				"cb........baaaa",  --  0
+				"aefffefffefffea",  --  1
+				"b.............c",  --  2
+				"a.............c",  --  3
+				"a.............b",  --  4
+				"a......o......a",  --  5
+				"b.....olo.....b",  --  6
+				"a.....olo.....b",  --  7
+				"c......o......n",  --  8
+				"c.............c",  --  9
+				"b.............b",  -- 10
+				"a.............d",  -- 11
+				"bjfffefffefffeb",  -- 12
+				"bbabaabaaaaaaab",  -- 13
+
+				-- Level 9
+				"aa........cadab",  --  0
+				"aefffefffefffec",  --  1
+				"a.............b",  --  2
+				"b.............b",  --  3
+				"b.............d",  --  4
+				"a.............c",  --  5
+				"b......l......c",  --  6
+				"b......l......c",  --  7
+				"b.............a",  --  8
+				"a.............b",  --  9
+				"c.............a",  -- 10
+				"a.............c",  -- 11
+				"c.fffefffefffea",  -- 12
+				"acaabcaaaaabbbc",  -- 13
+
+				-- Level 10
+				"b.........cacab",  --  0
+				"aa........acaca",  --  1
+				"abaaaddabaabbaa",  --  2
+				"acccabbaccaabdb",  --  3
+				"abcabcbbacbcbaa",  --  4
+				"adbcccaacabaaba",  --  5
+				"baacacaaccbbcaa",  --  6
+				"acbaacababaabba",  --  7
+				"baaabbccbbbcaab",  --  8
+				"aaaacaccababcbc",  --  9
+				"aabbbaaacabbbbd",  -- 10
+				"adcabbbaacabdcb",  -- 11
+				"baaacccacadaaba",  -- 12
+				"badcbaaadaaabac",  -- 13
+
+			},
+		},  -- stronghold_1
+
+
+
+		{
+			OriginData =
+			{
+				ExportName   = "stronghold_3",
+				Name         = "Library2",
+				GalleryName  = "Stronghold",
+				GalleryIndex = "2",
+				ID           = "3",
+				CreatorName  = "B8xer",
+			},
+			Size =
+			{
+				x = 16,
+				y = 6,
+				z = 14,
+			},
+			Hitbox =
+			{
+				MinX = 0,
+				MinY = 0,
+				MinZ = 0,
+				MaxX = 15,
+				MaxY = 5,
+				MaxZ = 13,
+			},
+			Connectors =
+			{
+				{
+					Type = -1,
+					RelX = 15,
+					RelY = 1,
+					RelZ = 5,
+					Direction = "x+",
+				},
+			},
+			Metadata =
+			{
+				["AddWeightIfSame"] = "0",
+				["AllowedRotations"] = "7",
+				["DefaultWeight"] = "100",
+				["DepthWeight"] = "",
+				["ExpandFloorStrategy"] = "None",
+				["IsStarting"] = "0",
+				["LimitPieces"] = "1",
+				["MergeStrategy"] = "msSpongePrint",
+				["MoveToGround"] = "0",
+			},
+			BlockDefinitions =
+			{
+				".:  0: 0",  -- air
+				"a: 98: 1",  -- stonebricks
+				"b: 98: 0",  -- stonebricks
+				"c: 98: 2",  -- stonebricks
+				"d: 97: 2",  -- silverfishblock
+				"e:  5: 0",  -- planks
+				"f: 47: 0",  -- bookshelf
+				"g: 30: 0",  -- web
+				"h: 71: 2",  -- irondoorblock
+				"i: 71: 9",  -- irondoorblock
+				"j: 77: 2",  -- stonebutton
+				"k: 77: 1",  -- stonebutton
+				"l: 50: 3",  -- torch
+				"m: 19: 0",  -- sponge
+				"n: 54: 2",  -- chest
+				"o: 50: 4",  -- torch
+			},
+			BlockData =
+			{
+				-- Level 0
+				"aaabcbbcacacacbc",  --  0
+				"babacabbaccadbcd",  --  1
+				"acbcbdbaaaaabbba",  --  2
+				"bbabbabbcaacadba",  --  3
+				"bbbbbbcabbbadccb",  --  4
+				"caabbaababbdbaac",  --  5
+				"bcbbbcdcdbcaabba",  --  6
+				"babbbbddadbbcbab",  --  7
+				"caccababbbbbacab",  --  8
+				"abbabbbccbbbaabd",  --  9
+				"acbbbbbabadcabbc",  -- 10
+				"bbbbaaabbaabbbc.",  -- 11
+				"aababbbccbcbbba.",  -- 12
+				"bbbbbbbbbbbcbdb.",  -- 13
+
+				-- Level 1
+				"bbabbcbadadacbac",  --  0
+				"defffefffefffeab",  --  1
+				"a.............bb",  --  2
+				"b.gf.f.f.f.f.gbc",  --  3
+				"a..f.f.f.f.f.gb.",  --  4
+				"a.............h.",  --  5
+				"a..f.f.f.f.f..b.",  --  6
+				"b..f.f.f.fgf..ba",  --  7
+				"a.............cb",  --  8
+				"b..f.f.f.f.f..bb",  --  9
+				"b..f.f.f.f.f..bb",  -- 10
+				"c.............b.",  -- 11
+				"befffefffefffec.",  -- 12
+				"b...bacbabcacca.",  -- 13
+
+				-- Level 2
+				"cbbbbacbcaaaaaba",  --  0
+				"befffefffefffebb",  --  1
+				"b.g...........ad",  --  2
+				"c..f.f.f.f.f..bb",  --  3
+				"b..f.f.f.f.f..b.",  --  4
+				"b.............i.",  --  5
+				"b..f.f.f.f.f.jbk",  --  6
+				"b..f.f.f.f.f.gbb",  --  7
+				"a......g.g....ba",  --  8
+				"b..f.f.f.f.fg.aa",  --  9
+				"c..f.f.f.f.f..ac",  -- 10
+				"b.............b.",  -- 11
+				"befffefffefffec.",  -- 12
+				"b...bdabababbbb.",  -- 13
+
+				-- Level 3
+				"bbcaabacaabbccca",  --  0
+				"cefffefffefffedb",  --  1
+				"bl...l...l...lbb",  --  2
+				"b..f.f.f.n.fg.bb",  --  3
+				"b.gf.f.f.f.f..b.",  --  4
+				"b............gb.",  --  5
+				"d..fgf.f.f.f..b.",  --  6
+				"a..f.f.f.f.f..cb",  --  7
+				"a...........g.db",  --  8
+				"a..f.f.f.f.f..bc",  --  9
+				"a..f.f.f.f.f.gbb",  -- 10
+				"b....o...o...oc.",  -- 11
+				"befffefffefffeb.",  -- 12
+				"b...bbaaabbcabc.",  -- 13
+
+				-- Level 4
+				"abaababdacabcbbb",  --  0
+				"cefffefffefffecb",  --  1
+				"b.............cb",  --  2
+				"bg......g.g...aa",  --  3
+				"b.............ca",  --  4
+				"a.............ba",  --  5
+				"c..........g..bb",  --  6
+				"c...g.........bb",  --  7
+				"a.............ab",  --  8
+				"a.............cc",  --  9
+				"b......g......ba",  -- 10
+				"..............b.",  -- 11
+				".efffefffefffea.",  -- 12
+				"bbbbbbbabaaabda.",  -- 13
+
+				-- Level 5
+				"bcbbacaabacbbabb",  --  0
+				"ababaabaabababab",  --  1
+				"bbbdcccbbbbbbaab",  --  2
+				"bcadbcbcbbbcbcbb",  --  3
+				"bcbccbaabbbaabbb",  --  4
+				"babcbbbacaddbbcb",  --  5
+				"cabbbacacabbbcbb",  --  6
+				"dabcbabbbcbbbaab",  --  7
+				"dbdcbabbabbdbaaa",  --  8
+				"bbdacbbcabaababb",  --  9
+				"..aacbcabdbcccbb",  -- 10
+				"...bcdacbbbcaca.",  -- 11
+				"...acadcbcccbcc.",  -- 12
+				"baabacbabbbcbcc.",  -- 13
+
+			},
+		},  -- stronghold_3
+	},  -- Pieces
+}
+
+
+
+

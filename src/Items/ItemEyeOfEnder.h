@@ -2,23 +2,24 @@
 #pragma once
 
 #include "ItemHandler.h"
-#include "ItemThrowable.h"
+#include "../Generating/StrongholdGen.h"
 
 
 
 
 
 class cItemEyeOfEnderHandler:
-	public cItemThrowableHandler
+	public cItemHandler
 {
-	using Super = cItemThrowableHandler;
+	using Super = cItemHandler;
 
 public:
 
 	cItemEyeOfEnderHandler():
-		Super(E_ITEM_EYE_OF_ENDER, cProjectileEntity::pkSnowball, 30)
+		Super(E_ITEM_EYE_OF_ENDER)
 	{
 	}
+
 
 
 
@@ -57,10 +58,19 @@ public:
 			return false;
 		}
 
-		// TODO: Create projectile for Eye Of Ender
-		// return Super::OnItemUse(a_World, a_Player, a_PluginInterface, a_Item, a_ClickedBlockPos, a_ClickedBlockFace);
+		// Spawn an Eye of ender entity
+		Vector3i a_Target = cStrongholdGen::GetNearestStronghold(*a_World, a_Player->GetPosition());
+		if (a_World->SpawnEyeOfEnder(a_Player->GetPosition()+Vector3d(0,0.66,0), a_Target) == cEntity::INVALID_ID)
+		{
+			return false;
+		}
 
-		return false;
+		if (!a_Player->IsGameModeCreative())
+		{
+			a_Player->GetInventory().RemoveOneEquippedItem();
+		}
+
+		return true;
 	}
 
 

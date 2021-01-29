@@ -27,6 +27,7 @@
 #include "Entities/Pickup.h"
 #include "Entities/Player.h"
 #include "Entities/TNTEntity.h"
+#include "Entities/EyeOfEnder.h"
 
 #include "BlockEntities/CommandBlockEntity.h"
 #include "BlockEntities/BeaconEntity.h"
@@ -2101,6 +2102,24 @@ UInt32 cWorld::SpawnEnderCrystal(Vector3d a_Pos, bool a_ShowBottom)
 		return cEntity::INVALID_ID;
 	}
 	return EnderCrystalPtr->GetUniqueID();
+}
+
+
+
+
+
+UInt32 cWorld::SpawnEyeOfEnder(Vector3d a_Pos, Vector3d a_Target)
+{
+	auto EyeOfEnder = std::make_unique<cEyeOfEnder>(a_Pos);
+	auto EyeOfEnderPtr = EyeOfEnder.get();
+	if (!EyeOfEnderPtr->Initialize(std::move(EyeOfEnder), *this))
+	{
+		return cEntity::INVALID_ID;
+	}
+
+	EyeOfEnderPtr->MoveTowards(a_Target);
+
+	return EyeOfEnderPtr->GetUniqueID();
 }
 
 

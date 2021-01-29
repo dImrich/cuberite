@@ -154,6 +154,11 @@ public:
 	/** The checker that verifies each placement's vertical position. */
 	cVerticalLimitPtr m_VerticalLimit;
 
+	/** The number of already placed pieces of this piece */
+	int m_PlacedPieces = 0;
+
+	/** Optional metadata that limits number of placed pieces of this piece */
+	int m_LimitPieces = 0;
 
 	/** Returns all of the available connectors that the piece has.
 	Each connector has a (relative) position in the piece, and a type associated with it. */
@@ -217,6 +222,9 @@ public:
 
 	/** Returns the hitbox after the specified number of CCW rotations and moved by the specified amounts. */
 	cCuboid RotateMoveHitBox(int a_NumCCWRotations, int a_MoveX, int a_MoveY, int a_MoveZ) const;
+
+	/** Sets the flag whether the piece placement should be limited. */
+	void SetLimitPieces(bool a_LimitPieces) { m_LimitPieces = a_LimitPieces; }
 };
 
 typedef std::vector<cPiece *> cPieces;

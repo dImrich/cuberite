@@ -353,6 +353,14 @@ bool cPrefabPiecePool::LoadCubesetPieceVer1(const AString & a_FileName, cLuaStat
 		}
 	}
 
+	// Read LimitPieces. It is an optional metadata value, default to 0:
+	int LimitPieces = 0;
+	a_LuaState.GetNamedValue("Metadata.LimitPieces", LimitPieces);
+	if (LimitPieces != 0)
+	{
+		prefab->SetLimitPieces(LimitPieces);
+	}
+
 	// Add the prefab into the list of pieces:
 	if (IsStartingPiece != 0)
 	{

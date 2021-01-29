@@ -180,6 +180,7 @@ public:
 			case cEntity::etPainting:     AddPaintingEntity    (static_cast<cPainting *>        (a_Entity)); break;
 			case cEntity::etPlayer: return;  // Players aren't saved into the world
 			case cEntity::etFloater: return;  // Floaters aren't saved either
+			case cEntity::etEyeOfEnder: return;  // Eyes of ender aren't saved either
 			default:
 			{
 				ASSERT(!"Unhandled entity type is being saved");

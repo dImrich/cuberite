@@ -148,6 +148,7 @@ bool cPieceGeneratorBFSTree::TryPlacePieceAtConnector(
 				// Doesn't fit in this rotation
 				continue;
 			}
+
 			// Fits, add it to list of possibile connections:
 			Connections.push_back(cConnection(**itrP, *itrC, NumCCWRotations, Weight));
 			WeightTotal += Weight;
@@ -173,6 +174,14 @@ bool cPieceGeneratorBFSTree::TryPlacePieceAtConnector(
 		}
 	}
 	cConnection & Conn = Connections[ChosenIndex];
+
+	// Limit placement to a number of pieces if LimitPieces flag is available
+	if ( Conn.m_Piece->m_LimitPieces > 0 && Conn.m_Piece->m_PlacedPieces >= Conn.m_Piece->m_LimitPieces)
+	{
+		return false;
+	}
+
+	Conn.m_Piece->m_PlacedPieces++;
 
 	// Place the piece:
 	Vector3i NewPos = Conn.m_Piece->RotatePos(Conn.m_Connector.m_Pos, Conn.m_NumCCWRotations);

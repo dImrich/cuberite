@@ -6,6 +6,7 @@ target_sources(
 	EnderCrystal.cpp
 	Entity.cpp
 	EntityEffect.cpp
+	EyeOfEnder.cpp
 	ExpBottleEntity.cpp
 	ExpOrb.cpp
 	FallingBlock.cpp
@@ -34,6 +35,7 @@ target_sources(
 	EnderCrystal.h
 	Entity.h
 	EntityEffect.h
+	EyeOfEnder.h
 	ExpBottleEntity.h
 	ExpOrb.h
 	FallingBlock.h

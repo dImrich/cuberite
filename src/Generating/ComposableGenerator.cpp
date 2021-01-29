@@ -30,6 +30,8 @@
 #include "SinglePieceStructuresGen.h"
 #include "VillageGen.h"
 #include "PieceStructuresGen.h"
+#include "StrongholdGen.h"
+
 
 
 
@@ -218,6 +220,7 @@ void cComposableGenerator::InitializeGeneratorDefaults(cIniFile & a_IniFile, eDi
 				"Mineshafts, "
 				"Trees, "
 				"Villages, "
+				"Strongholds, "
 				"SinglePieceStructures: JungleTemple|WitchHut|DesertPyramid|DesertWell, "
 				"TallGrass, "
 				"SprinkleFoliage, "
@@ -634,6 +637,16 @@ void cComposableGenerator::InitFinishGens(cIniFile & a_IniFile)
 			AString PrefabList = a_IniFile.GetValueSet("Generator", "VillagePrefabs", "PlainsVillage, SandVillage");
 			auto Prefabs = StringSplitAndTrim(PrefabList, ",");
 			m_FinishGens.push_back(std::make_shared<cVillageGen>(m_Seed, GridSize, MaxOffset, MaxDepth, MaxSize, MinDensity, MaxDensity, m_BiomeGen, m_CompositedHeightCache, seaLevel, Prefabs));
+		}
+		else if (NoCaseCompare(finisher, "Strongholds") == 0)
+		{
+			int GridSize   = a_IniFile.GetValueSetI("Generator", "StrongholdGridSize",  384);
+			int MaxOffset  = a_IniFile.GetValueSetI("Generator", "StrongholdMaxOffset", 128);
+			int MaxDepth   = a_IniFile.GetValueSetI("Generator", "StrongholdMaxDepth",    9);
+			int MaxSize    = a_IniFile.GetValueSetI("Generator", "StrongholdMaxSize",   256);
+			int MinDensity = a_IniFile.GetValueSetI("Generator", "StrongholdMinDensity", 80);
+			int MaxDensity = a_IniFile.GetValueSetI("Generator", "StrongholdMaxDensity", 160);
+			m_FinishGens.push_back(std::make_shared<cStrongholdGen>(m_Seed, GridSize, MaxOffset, MaxDepth, MaxSize, MinDensity, MaxDensity, m_BiomeGen, m_CompositedHeightCache, seaLevel));
 		}
 		else if (NoCaseCompare(finisher, "Vines") == 0)
 		{

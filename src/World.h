@@ -633,6 +633,10 @@ public:
 	Returns the UniqueID of the created entity, or cEntity::INVALID_ID on failure. */
 	UInt32 SpawnEnderCrystal(Vector3d a_Pos, bool a_ShowBottom);
 
+	/** Spawns a new eye of ender at the specified block coords.
+	Returns the UniqueID of the created entity, or cEntity::INVALID_ID on failure. */
+	UInt32 SpawnEyeOfEnder(Vector3d a_Pos, Vector3d a_Target);
+
 	// tolua_end
 
 	/** Replaces the specified block with another, and calls the OnPlaced block handler.

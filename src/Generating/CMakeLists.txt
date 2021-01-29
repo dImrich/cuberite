@@ -25,6 +25,7 @@ target_sources(
 	Ravines.cpp
 	RoughRavines.cpp
 	SinglePieceStructuresGen.cpp
+	StrongholdGen.cpp
 	StructGen.cpp
 	Trees.cpp
 	TwoHeights.cpp
@@ -60,6 +61,7 @@ target_sources(
 	RoughRavines.h
 	ShapeGen.cpp
 	SinglePieceStructuresGen.h
+	StrongholdGen.h
 	StructGen.h
 	Trees.h
 	TwoHeights.h

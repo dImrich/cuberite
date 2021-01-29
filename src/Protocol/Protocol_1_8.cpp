@@ -4009,6 +4009,7 @@ UInt8 cProtocol_1_8_0::GetProtocolEntityType(const cEntity & a_Entity)
 		case Type::etFloater: return 90;
 		case Type::etItemFrame: return 71;
 		case Type::etLeashKnot: return 77;
+		case Type::etEyeOfEnder: return 72;
 
 		// Non-objects must not be sent
 		case Type::etEntity:

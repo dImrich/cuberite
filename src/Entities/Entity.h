@@ -102,6 +102,7 @@ public:
 		etItemFrame,
 		etPainting,
 		etLeashKnot,
+		etEyeOfEnder,
 
 		// Common variations
 		etMob = etMonster,  // DEPRECATED, use etMonster instead!
